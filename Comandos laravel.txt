@@ -1,0 +1,67 @@
+--- install laravel ---
+composer create-project laravel/laravel Proyect   // crear proyecto 
+php artisan serve  // levantar proyecto de manera local
+php artisan serve --port=8001 // levantar proyecto en un puerto diferente
+php artisan --version // para conocer la version de laravel que esta instalada
+
+--- Create important files ---
+php artisan make:migration create_user_table 
+php artisan make:model UserModel
+php artisan make:controller UserController --resource
+
+
+-- Create tables --
+php artisan migrate
+php artisan migrate:refresh   // Revertirá todas sus migraciones y luego ejecutará el comando migrar.
+php artisan migrate:fresh     // eliminará todas las tablas de la base de datos y luego ejecutará el comando migrar
+php artisan migrate:rollback  // Para revertir el último "lote" de migraciones
+
+
+--- Create seeders ---
+php artisan make:factory UserFactory --model=User
+php artisan make:seeder UserSeeder
+
+--- Other type of commands  ---
+php artisan optimize
+php artisan route:list  // Se utiliza para mostrar una lista de todas las rutas registradas para la aplicación
+php artisan co:ca
+composer dump-autoload
+php artisan passport:install
+php artisan key:generate
+
+
+--- Install already created project ---
+composer clearcache
+composer install
+php artisan key:generate
+
+--- install login
+composer require laravel/ui
+php artisan ui bootstrap 
+php artisan ui bootstrap --auth
+npm install
+npm run dev
+
+
+--- Use Tinker
+php artisan tinker
+use ArtistaModel
+\ArtistaModel::all();
+\ArtistaModel::create([
+    'nombre'=> 'Juanito',
+    'imagen'=>'', 
+    'descripcion'=>'Descripcion'
+])
+
+-- Your serialized closure might have been modified or it's unsafe to be unserialized./ Error
+php artisan key:generate
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+
+
+--- regiones, comunas y provincias chile
+composer require davidvegacl/laravel-chile
+php artisan vendor:publish --provider="DavidVegaCl\LaravelChile\LaravelChileServiceProvider"
+php artisan migrate
+php artisan laravelchile:seed
