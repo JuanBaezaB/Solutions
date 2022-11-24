@@ -65,3 +65,7 @@ composer require davidvegacl/laravel-chile
 php artisan vendor:publish --provider="DavidVegaCl\LaravelChile\LaravelChileServiceProvider"
 php artisan migrate
 php artisan laravelchile:seed
+
+
+--- Passport laravel createToken Personal access client not found  // because it have been happened after refreshing my database.
+php artisan passport:install
